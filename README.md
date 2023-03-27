@@ -236,6 +236,11 @@ Rust toolchain
   rustup toolchain install nightly
   rustup default nightly
   ```
+  
+-  Linux: Install [MUSL](https://musl.libc.org/) to support cross-platform binary builds
+  ```
+  apt-get install musl musl-tools
+  ```
 
 - Windows: Make sure the latest version of
   [Rtools](https://cran.r-project.org/bin/windows/Rtools/) is installed
@@ -286,7 +291,13 @@ devtools::test()     # run all unit tests
 **Step 4 (optional):** Build the package locally.
 
 ``` r
-R CMD INSTALL --no-multiarch --with-keep.source rpolars
+R CMD INSTALL --no-multiarch --with-keep.source r-polars
+```
+
+**Step 5 (optional):** Build a binary, but don't install
+
+``` r
+R CMD build r-polars
 ```
 
 **Step 5:** Commit your changes and submit a PR to the main **rpolars**
